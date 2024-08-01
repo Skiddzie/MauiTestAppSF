@@ -14,6 +14,7 @@
                 SemanticProperties.Description="dot net bot in a race car number eight" />
 
             <Label
+                x:Name="WelcomeText"
                 Text="Hello, World!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
@@ -24,13 +25,22 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
+            <Label
+                x:Name="InfoText"
+                Text=""
+                TextColor="Red"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level3" />
+
+
             <Entry x:Name="UserEntryBox"
                Placeholder="User"
                VerticalOptions="Center"
                HorizontalOptions="FillAndExpand" />
             
-            <Entry x:Name="PassswordEntryBox"
+            <Entry x:Name="PasswordEntryBox"
                Placeholder="Password"
+               IsPassword="True"
                VerticalOptions="Center"
                HorizontalOptions="FillAndExpand" />
             <Button
