@@ -74,6 +74,7 @@ namespace MauiApp1
                 InfoText.TextColor = Colors.Green;
                 StoreAccessToken(ExtractAccessToken(responseContent));
                 Debug.WriteLine("access token: " + RetrieveAccessToken() + " my access token");
+                await Navigation.PushAsync(new QueryPage());
                 return responseContent;
             }
         }
