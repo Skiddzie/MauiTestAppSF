@@ -90,11 +90,12 @@ namespace MauiApp1
                             Preferences.Set("AccountBillingCountry", billingCountry);
 
                             Debug.WriteLine($"Id: {id}, Name: {name}, BillingStreet: {billingStreet}, BillingCity: {billingCity}, BillingState: {billingState}, BillingPostalCode: {billingPostalCode}, BillingCountry: {billingCountry}");
-
+                            ErrorText.Text = "";
                             await Navigation.PushAsync(new AccountDisplayPage());
                         }
                         else
                         {
+                            ErrorText.Text = "No records found. Try a different name";
                             Debug.WriteLine("No records found.");
                         };
                     }
