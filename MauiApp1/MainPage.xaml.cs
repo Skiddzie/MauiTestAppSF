@@ -73,6 +73,10 @@ namespace MauiApp1
                 InfoText.Text = "Success";
                 InfoText.TextColor = Colors.Green;
                 StoreAccessToken(ExtractAccessToken(responseContent));
+
+                
+                StoreURL(ExtractURL(responseContent));
+                Debug.WriteLine("URL FOR API: " + Preferences.Get("URL", string.Empty));
                 Debug.WriteLine("access token: " + RetrieveAccessToken() + " my access token");
                 await Navigation.PushAsync(new QueryPage());
                 return responseContent;
@@ -80,7 +84,6 @@ namespace MauiApp1
         }
         private string ExtractAccessToken(string jsonResponse)
         {
-            // Assuming the jsonResponse is in the format {"access_token":"...", ...}
             var jsonObject = System.Text.Json.JsonDocument.Parse(jsonResponse).RootElement;
             return jsonObject.GetProperty("access_token").GetString();
         }
@@ -90,7 +93,16 @@ namespace MauiApp1
             Preferences.Set("AccessToken", accessToken);
         }
 
-        private string RetrieveAccessToken()
+        private string ExtractURL(string jsonResponse)
+        {
+            var jsonObject = System.Text.Json.JsonDocument.Parse(jsonResponse).RootElement;
+            return jsonObject.GetProperty("instance_url").GetString();
+        }
+        private void StoreURL(string url)
+        {
+            Preferences.Set("URL", url);
+        }
+        public string RetrieveAccessToken()
         {
             Debug.WriteLine("revriveaccesstoken called");
             return Preferences.Get("AccessToken", string.Empty);

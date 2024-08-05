@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.AccountDisplayPage"
+             Title="AccountDisplayPage">
+    <VerticalStackLayout>
+        <Button
+            x:Name="BackButton"
+            Text="Back"
+            SemanticProperties.Hint="Click to go back to query page"
+            Clicked="OnBackButtonClicked"
+            HorizontalOptions="End"
+            Margin="10,10,10,10"
+            ></Button>
+        <Label 
+            x:Name="AccountId"
+            Text="Label 1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountName"
+            Text="Label 2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountBillingStreet"
+            Text="Label 3"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountBillingCity"
+            Text="Label 4"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountBillingState"
+            Text="Label 5"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountBillingPostalCode"
+            Text="Label 6"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="AccountBillingCountry"
+            Text="Label 7"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+    </VerticalStackLayout>
+</ContentPage>
