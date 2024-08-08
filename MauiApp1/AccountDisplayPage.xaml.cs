@@ -1,7 +1,9 @@
 namespace MauiApp1;
 
+#if __ANDROID__ || __IOS__
 using Zebra.Sdk.Comm;
 using Zebra.Sdk.Printer;
+#endif
 using MauiApp1.Services;
 using Microsoft.Maui.Controls;
 using System;
@@ -14,8 +16,10 @@ public partial class AccountDisplayPage : ContentPage
     public AccountDisplayPage()
     {
         InitializeComponent();
-        _printerService = new ZebraPrinterService("192.168.1.122");
-
+#if __ANDROID__ || __IOS__
+        // Replace with your Bluetooth MAC address
+        _printerService = new ZebraPrinterService("58:7A:62:4B:BC:AA");
+#endif
         AccountId.Text = "ID: " + Preferences.Get("AccountId", string.Empty);
         AccountName.Text = Preferences.Get("AccountName", string.Empty);
         AccountBillingStreet.Text = Preferences.Get("AccountBillingStreet", string.Empty);
@@ -32,7 +36,8 @@ public partial class AccountDisplayPage : ContentPage
 
     public async void OnPrintButtonClicked(object sender, EventArgs e)
     {
-        Debug.WriteLine("print button running");
+#if __ANDROID__ || __IOS__
+        Debug.WriteLine("Print button running");
 
         string accountId = Preferences.Get("AccountId", string.Empty);
         string accountName = Preferences.Get("AccountName", string.Empty);
@@ -54,5 +59,6 @@ public partial class AccountDisplayPage : ContentPage
                      "^XZ";
 
         await _printerService.PrintZplAsync(zpl);
+#endif
     }
 }

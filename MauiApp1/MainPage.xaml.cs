@@ -31,6 +31,7 @@ namespace MauiApp1
             
             SemanticScreenReader.Announce(CounterBtn.Text);
 
+            Navigation.PushAsync(new QueryPage());
 
         }
 
