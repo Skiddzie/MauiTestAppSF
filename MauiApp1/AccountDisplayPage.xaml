@@ -47,6 +47,14 @@
             Text="Label 7"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            x:Name="PrintButton"
+            Text="PRINT"
+            SemanticProperties.Hint="Click to print current details"
+            Clicked="OnPrintButtonClicked"
+            HorizontalOptions="CenterAndExpand"
+            Margin="10,10,10,10"
+            ></Button>
 
 
     </VerticalStackLayout>

@@ -13,7 +13,10 @@ namespace MauiApp1
         public MainPage()
         {
             InitializeComponent();
-
+            if (Preferences.Get("Username", string.Empty) != null)
+            {
+                UserEntryBox.Text = Preferences.Get("Username", string.Empty);
+            }
             Debug.WriteLine("MainPage has been initialized.");
         }
 
@@ -74,7 +77,8 @@ namespace MauiApp1
                 InfoText.TextColor = Colors.Green;
                 StoreAccessToken(ExtractAccessToken(responseContent));
 
-                
+                StoreUsername(username);
+
                 StoreURL(ExtractURL(responseContent));
                 Debug.WriteLine("URL FOR API: " + Preferences.Get("URL", string.Empty));
                 Debug.WriteLine("access token: " + RetrieveAccessToken() + " my access token");
@@ -101,6 +105,11 @@ namespace MauiApp1
         private void StoreURL(string url)
         {
             Preferences.Set("URL", url);
+        }
+
+        private void StoreUsername(string username)
+        {
+            Preferences.Set("Username", username);
         }
         public string RetrieveAccessToken()
         {

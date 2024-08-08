@@ -15,7 +15,7 @@
 
             <Label
                 x:Name="WelcomeText"
-                Text="Hello, World!"
+                Text="SalesForce Login"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 

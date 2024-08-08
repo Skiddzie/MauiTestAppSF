@@ -29,8 +29,14 @@ namespace MauiApp1
         {
             string lastName = NameEntryBox.Text;
             string accessToken = RetrieveAccessToken();
-
-            await AccountQuery(lastName);
+            if (lastName == "" || lastName == " ")
+            {
+                ErrorText.Text = "Please enter a name";
+            } else
+            {
+                await AccountQuery(lastName);
+            }
+            
 
                         
         }
